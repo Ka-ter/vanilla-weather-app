@@ -1,17 +1,36 @@
+body {
+  color: rgb(62, 91, 134);
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
 .weather {
   max-width: 600px;
   margin: 30px auto;
   padding: 20px;
   border: 2px solid rgb(134, 171, 219);
-  border-radius: 10px;
-  color: rgb(62, 91, 134);
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  border-radius: 5px;
 }
 
-.weather h1 {
+h1 {
   margin: 20px 0 10px 0;
   font-size: 30px;
   font-weight: bold;
   line-height: 30px;
+}
+
+img {
+  max-width: 100px;
+  margin: 3px auto;
+}
+
+ul {
+  padding-left: 5px;
+  list-style: none;
+}
+
+.col-6 {
+  width: fit-content;
+}
+footer {
+  font-size: 12px;
 }
