@@ -20,10 +20,15 @@
       <div class="weather">
         <img src="images/sunny.png" class="logo" alt="Sunny Logo"></img>
         
-        <form>
+        <form id="city-search">
           <div class="row">
             <div class="col-9 ">
-              <input type="search" required minlength="2" size="20" autocomplete="off" autofocus="on" placeholder="Enter a city.." class="form-control search-input" spellcheck="false" data-ms-editor="true">
+              <input type="search" 
+              required minlength="2" size="20" 
+              autocomplete="off" autofocus="on" 
+              placeholder="Enter a city.." 
+              spellcheck="false" data-ms-editor="true" 
+              id="search-input">
             </div>
             <div class="col-3 p-0">
               <input type="submit" class="btn btn-primary w-100" value="Search">
@@ -33,7 +38,7 @@
         <div class="weatherInfo">
           <div class="row">
             <div class="col-6">
-              <h1>[city]</h1>
+              <h1 class="display-city">[city]</h1>
               <ul>
                 <li>[date], [weather description]  </li>
                 <li>Humidity: <strong>[humidity] %</strong>, Wind: <strong>[speed] km/h</strong> </li>
