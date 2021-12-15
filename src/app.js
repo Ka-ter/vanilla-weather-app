@@ -1,29 +1,36 @@
 //let apiKey = "e71ce36525bb4351bd2f84fec8a5122c";
 
-let now = new Date();
-let date = now.getDate();
-let hours = now.getHours();
-let minutes = now.getMinutes();
-if (hours < 10) {
-  hours = "0" + hours;
-}
-if (minutes < 10) {
-  minutes = "0" + minutes;
-}
+dateFunction();
+// let apiKey = "e71ce36525bb4351bd2f84fec8a5122c";
+// let url = `https://api.openweathermap.org/data/2.5/weather?q=London&appid=${apiKey}&units=metric`;
+// axios.get(url).then(getWeather);
 
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let day = days[now.getDay()];
+function dateFunction() {
+  let now = new Date();
+  let date = now.getDate();
+  let hours = now.getHours();
+  let minutes = now.getMinutes();
+  if (hours < 10) {
+    hours = "0" + hours;
+  }
+  if (minutes < 10) {
+    minutes = "0" + minutes;
+  }
 
-let today = document.querySelector(".today");
-today.innerHTML = `${day} ${hours}:${minutes}`;
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[now.getDay()];
+
+  let today = document.querySelector(".today");
+  today.innerHTML = `${day} ${hours}:${minutes}`;
+}
 
 // New Start
 function getWeather(response) {
@@ -56,6 +63,7 @@ function citySearch(event) {
   let url = `https://api.openweathermap.org/data/2.5/weather?q=${searchedCity.value}&appid=${apiKey}&units=metric`;
 
   axios.get(url).then(getWeather);
+  dateFunction();
 }
 
 let form = document.querySelector("#city-search");
