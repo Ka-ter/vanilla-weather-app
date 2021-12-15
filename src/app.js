@@ -1,9 +1,8 @@
-//let apiKey = "e71ce36525bb4351bd2f84fec8a5122c";
+let apiKey = "e71ce36525bb4351bd2f84fec8a5122c";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Klaksvik&appid=${apiKey}&units=metric`;
+axios.get(apiUrl).then(getWeather);
 
 dateFunction();
-// let apiKey = "e71ce36525bb4351bd2f84fec8a5122c";
-// let url = `https://api.openweathermap.org/data/2.5/weather?q=London&appid=${apiKey}&units=metric`;
-// axios.get(url).then(getWeather);
 
 function dateFunction() {
   let now = new Date();
@@ -28,29 +27,31 @@ function dateFunction() {
   ];
   let day = days[now.getDay()];
 
-  let today = document.querySelector(".today");
+  let today = document.querySelector("#today");
   today.innerHTML = `${day} ${hours}:${minutes}`;
 }
 
 // New Start
 function getWeather(response) {
-  let temperature1 = Math.round(response.data.main.temp);
-  let humidity1 = Math.round(response.data.main.humidity);
-  let city1 = response.data.name;
-  let description1 = response.data.weather[0].description;
-  let wind = Math.round(10 * response.data.wind.speed);
-  console.log(response.data.wind.speed);
+  let cityElement = document.querySelector("#display-city");
+  let descriptionElement = document.querySelector("#description");
+  let humidityElement = document.querySelector("#humidity");
+  let speedElement = document.querySelector("#speed");
+  let temperatureElement = document.querySelector("#temperature");
 
-  let city = document.querySelector(".display-city");
-  city.innerHTML = `${city1}`;
-  let temperature = document.querySelector(".temperature");
-  temperature.innerHTML = `${temperature1}`;
-  let humidity = document.querySelector(".humidity");
-  humidity.innerHTML = `${humidity1}`;
-  let description = document.querySelector(".description");
-  description.innerHTML = `${description1}`;
-  let speed = document.querySelector(".speed");
-  speed.innerHTML = `${wind}`;
+  let city = response.data.name;
+  let country = response.data.sys.country;
+  let description = response.data.weather[0].description;
+  let humidity = Math.round(response.data.main.humidity);
+  let speed = Math.round(response.data.wind.speed * 3.6); // meter/sec * 3.6 = km/h
+  let temperature = Math.round(response.data.main.temp);
+  console.log(response.data);
+
+  cityElement.innerHTML = `${city}, ${country}`;
+  descriptionElement.innerHTML = `${description}`;
+  humidityElement.innerHTML = `${humidity}`;
+  speedElement.innerHTML = `${speed}`;
+  temperatureElement.innerHTML = `${temperature}`;
 }
 
 function citySearch(event) {
