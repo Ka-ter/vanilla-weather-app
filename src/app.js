@@ -1,8 +1,6 @@
 //let apiKey = "e71ce36525bb4351bd2f84fec8a5122c";
 
 let now = new Date();
-let today = document.querySelector(".display-date");
-
 let date = now.getDate();
 let hours = now.getHours();
 let minutes = now.getMinutes();
@@ -24,21 +22,30 @@ let days = [
 ];
 let day = days[now.getDay()];
 
+let today = document.querySelector(".today");
 today.innerHTML = `${day} ${hours}:${minutes}`;
 
 // New Start
 function getWeather(response) {
-  let temperature = Math.round(response.data.main.temp);
+  let temperature1 = Math.round(response.data.main.temp);
+  let humidity1 = Math.round(response.data.main.humidity);
   let city1 = response.data.name;
-  console.log(response.data.name);
+  let description1 = response.data.weather[0].description;
+  console.log(response.data.weather[0].description);
 
   let city = document.querySelector(".display-city");
-  city.innerHTML = `${city1}    /    ${temperature}°C`;
+  city.innerHTML = `${city1}`;
+  let temperature = document.querySelector(".temperature");
+  temperature.innerHTML = `${temperature1}`;
+  let humidity = document.querySelector(".humidity");
+  humidity.innerHTML = `${humidity1}`;
+  let description = document.querySelector(".description");
+  description.innerHTML = `${description1}`;
 }
 
 function citySearch(event) {
   event.preventDefault();
-  let searchedCity = document.querySelector("#search-input");
+  let searchedCity = document.querySelector(".search-input");
 
   let apiKey = "e71ce36525bb4351bd2f84fec8a5122c";
   console.log(searchedCity.value + apiKey);
