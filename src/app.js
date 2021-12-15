@@ -36,6 +36,7 @@ function getWeather(response) {
   let cityElement = document.querySelector("#display-city");
   let descriptionElement = document.querySelector("#description");
   let humidityElement = document.querySelector("#humidity");
+  let iconElement = document.querySelector("#icon");
   let speedElement = document.querySelector("#speed");
   let temperatureElement = document.querySelector("#temperature");
 
@@ -43,19 +44,27 @@ function getWeather(response) {
   let country = response.data.sys.country;
   let description = response.data.weather[0].description;
   let humidity = Math.round(response.data.main.humidity);
+  let icon = response.data.weather[0].icon;
   let speed = Math.round(response.data.wind.speed * 3.6); // meter/sec * 3.6 = km/h
   let temperature = Math.round(response.data.main.temp);
   console.log(response.data);
 
+  celsiusTemperature = response.data.main.temp;
+
   cityElement.innerHTML = `${city}, ${country}`;
   descriptionElement.innerHTML = `${description}`;
   humidityElement.innerHTML = `${humidity}`;
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
   speedElement.innerHTML = `${speed}`;
   temperatureElement.innerHTML = `${temperature}`;
 }
 
 function citySearch(event) {
-  event.preventDefault();
+  event.preventDefault(); // don't open new browser tab for link
   let searchedCity = document.querySelector(".search-input");
 
   let apiKey = "e71ce36525bb4351bd2f84fec8a5122c";
@@ -67,5 +76,30 @@ function citySearch(event) {
   dateFunction();
 }
 
+function convertToFahrenheit(event) {
+  event.preventDefault(); // don't open new browser tab for link
+  celsiusUnit.classList.remove("active");
+  fahrenheitUnit.classList.add("active");
+  let temperatureElement = document.querySelector("#temperature");
+  let fahrenheitTemperature = Math.round((celsiusTemperature * 9) / 5 + 32);
+  temperatureElement.innerHTML = fahrenheitTemperature;
+}
+
+function convertToCelsius(event) {
+  event.preventDefault(); // don't open new browser tab for link
+  celsiusUnit.classList.add("active");
+  fahrenheitUnit.classList.remove("active");
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
+
 let form = document.querySelector("#city-search");
 form.addEventListener("submit", citySearch);
+
+let fahrenheitUnit = document.querySelector("#fahrenheit-unit");
+fahrenheitUnit.addEventListener("click", convertToFahrenheit);
+
+let celsiusUnit = document.querySelector("#celsius-unit");
+celsiusUnit.addEventListener("click", convertToCelsius);
