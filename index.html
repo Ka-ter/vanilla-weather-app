@@ -32,7 +32,7 @@
             </div>
           </div>
         </form>
-        <div class="weatherInfo">
+        <div class="weather-info">
           <div class="row">
             <div class="col-6">
               <h1 id="display-city"></h1>
@@ -43,10 +43,25 @@
             </div>
             <div class="col-6">
               <div class="temperature-box">
-                  <img src="" alt="Clear" id="icon"/> 
+                  <img src="" alt="Clear" id="icon" /> 
                   <span id="temperature"></span> 
-                  <span class="unit"><a href="#" id="celsius-unit" class="active">°C</a>|<a href="#" id="fahrenheit-unit">°F</a></span>
-                
+                  <span class="unit">
+                    <a href="#" id="celsius-unit" class="active">°C</a>
+                    |
+                    <a href="#" id="fahrenheit-unit" class="active">°F</a>
+                  </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="weather-forecast">
+          <div class="row">
+            <div class="col-2">
+              <div class="weather-forecast-date">Tue</div>
+              <img src="http://openweathermap.org/img/wn/04n@2x.png" alt="" width="42"/>
+              <div class="weather-forecast-temperature">
+                <span class="weather-forecast-temperature-max">07°</span>  
+                <span class="weather-forecast-temperature-min">04°</span>
               </div>
             </div>
           </div>

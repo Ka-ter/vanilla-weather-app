@@ -1,0 +1,3 @@
+# To add the HTML and CSS for forecast / HTML CSS
+# T add the API call to get the forecast / API
+# To replace the dummy content with real data / JS

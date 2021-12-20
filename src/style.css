@@ -19,10 +19,9 @@ h1 {
 }
 
 img {
-  max-width: 100px;
+  max-width: 80px;
   margin: 5px auto;
   position: relative;
-  left: 20px;
 }
 
 ul {
@@ -51,11 +50,33 @@ footer {
   font-size: 30px;
   font-weight: bold;
   line-height: 30px;
+  position: relative;
+  top: -8px;
 }
 
 .temperature-box .unit {
-  font-size: 17px;
-  font-weight: bold;
-  position: relative;
-  top: -8px;
+  font-size: 15px;
+}
+
+.unit .active:hover {
+  text-decoration: none;
+}
+
+.weather-forecast {
+  margin-top: 20px;
+  text-align: center;
+  color: #000;
+}
+
+.weather-forecast-date {
+  font-size: 16px;
+  opacity: 0.5;
+}
+
+.weather-forecast-temperature-min {
+  opacity: 0.5;
+}
+
+.weather-forecast-temperature {
+  font-size: 13px;
 }
