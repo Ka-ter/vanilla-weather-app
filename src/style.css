@@ -7,7 +7,7 @@ body {
   max-width: 600px;
   margin: 30px auto;
   padding: 3px 30px 30px 20px;
-  border: 2px solid rgb(134, 171, 219);
+  border: 5px solid rgb(5, 165, 85);
   border-radius: 5px;
 }
 
@@ -55,7 +55,7 @@ footer {
 }
 
 .temperature-box .unit {
-  font-size: 15px;
+  font-size: 20px;
 }
 
 .unit .active {
@@ -68,14 +68,21 @@ footer {
 }
 
 .weather-forecast-date {
-  font-size: 16px;
-  opacity: 0.5;
+  font-size: 17px;
+  opacity: 0.7;
 }
 
 .weather-forecast-temperature-min {
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 .weather-forecast-temperature {
-  font-size: 13px;
+  font-size: 15px;
+}
+
+.welcome {
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 30px;
+  color: rgb(5, 165, 85);
 }
